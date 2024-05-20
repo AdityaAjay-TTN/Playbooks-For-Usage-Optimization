@@ -210,31 +210,31 @@ def main():
         
 
             row_instance = {}
-            if finding != '':
-                row_instance.update({'Account ID': accountId})
-                row_instance.update({'Region': region})
-                row_instance.update({"VolumeId": vol["VolumeId"]})
-                row_instance.update({"State": vol["State"]})
-                row_instance.update({"InstanceId": instanceId})
-                row_instance.update({"Type": vol["VolumeType"]})
-                row_instance.update({"SnapshotId": vol["SnapshotId"]})
-                row_instance.update({"SizeGB": vol["Size"]})
-                row_instance.update({"Iops": iops})
-                row_instance.update({"cloudwatch_period": cloudwatch_period})
-                row_instance.update({"Throughput": vol['Throughput'] if 'Throughput' in vol else 0})
-                row_instance.update({"IOPSUtilization": iopsutilization})
-                row_instance.update({"CreationDate": creation_date})
-                row_instance.update(
-                    {"CurrentMonthlyStorageCost($)": storage_price})
-                row_instance.update(
-                    {"CurrentMonthlyIopsCost($)": iops_price})
-                row_instance.update(
-                    {"CurrentMonthlyThroughputCost($)": throughput_price})
-                row_instance.update(
-                    {"Savings($)":savings})
-                row_instance.update({"Finding": finding})
-                writer.writerow(row_instance)
-                csvFile.flush()
+            # if finding != '':
+            row_instance.update({'Account ID': accountId})
+            row_instance.update({'Region': region})
+            row_instance.update({"VolumeId": vol["VolumeId"]})
+            row_instance.update({"State": vol["State"]})
+            row_instance.update({"InstanceId": instanceId})
+            row_instance.update({"Type": vol["VolumeType"]})
+            row_instance.update({"SnapshotId": vol["SnapshotId"]})
+            row_instance.update({"SizeGB": vol["Size"]})
+            row_instance.update({"Iops": iops})
+            row_instance.update({"cloudwatch_period": cloudwatch_period})
+            row_instance.update({"Throughput": vol['Throughput'] if 'Throughput' in vol else 0})
+            row_instance.update({"IOPSUtilization": iopsutilization})
+            row_instance.update({"CreationDate": creation_date})
+            row_instance.update(
+                {"CurrentMonthlyStorageCost($)": storage_price})
+            row_instance.update(
+                {"CurrentMonthlyIopsCost($)": iops_price})
+            row_instance.update(
+                {"CurrentMonthlyThroughputCost($)": throughput_price})
+            row_instance.update(
+                {"Savings($)":savings})
+            row_instance.update({"Finding": finding})
+            writer.writerow(row_instance)
+            csvFile.flush()
 
         print("Output stored in ebs.csv file.")
 
