@@ -236,6 +236,8 @@ def main():
                 writer.writerow(row_instance)
                 csvFile.flush()
 
+        print("Output stored in ebs.csv file.")
+
 
 
 if __name__ == "__main__":
